@@ -2,6 +2,7 @@ const http = require('http')
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const expect = require('chai');
 const socket = require('socket.io');
 
@@ -15,15 +16,15 @@ const io = socket(server)
 
 //security
 const helmet = require('helmet')
-app.use(helmet())
+app.use(helmet.xssFilter())
+app.use(helmet.noSniff())
 app.use(helmet.noCache())
-app.use(function (req, res, next) {
-  res.setHeader('X-Powered-By', 'PHP 7.4.3')
-  next()
-})
+app.use(helmet.hidePoweredBy({setTo: 'PHP 7.4.3'}))
 
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/assets', express.static(process.cwd() + '/assets'));
+
+app.use(cors({origin: '*'})); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
