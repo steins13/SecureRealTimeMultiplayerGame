@@ -1,0 +1,32 @@
+make player init in server side (collectibles too?)
+server send to client then client send back to server then server emit to all sockets
+
+socket.emit = send from server to one socket vice versa
+socket.on = listening to something
+io.emit = send from server to all sockets
+socket.broadcast.emit = send to all sockets except sender
+
+socket.client.id
+
+
+Food - "https://i.redd.it/60isol1tbm561.png"
+Main - "https://preview.redd.it/jnjsxsvlcnn61.png?width=530&format=png&auto=webp&s=6560e8ef523820cffb04d557646169d58d5324aa"
+Enemy - "https://preview.redd.it/ecmn09nncnn61.png?width=578&format=png&auto=webp&s=668e6eefaf1b661e57e07067dd147be91ed67d1e"
+
+make a function for drawing/setting the source of image
+function () {
+  let img = new image
+  img.src = link
+  return img
+}
+
+separate sockets and draw
+cancel animation frame when restart
+
+user map/filter/find for searching players for better performance
+
+draw:
+canvas
+main player
+other players
+Food

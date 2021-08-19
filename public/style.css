@@ -20,3 +20,22 @@ canvas {
     flex-direction: row;
   }
 }
+
+#title {
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 30px;
+  font-family: cursive;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+#game-window {
+  border: solid;
+  background-color: antiquewhite;
+}
